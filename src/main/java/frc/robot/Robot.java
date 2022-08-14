@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.PS4Controller;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
@@ -28,7 +29,7 @@ public class Robot extends TimedRobot {
 
   // Joysticks
   private final Joystick m_driver = new Joystick(0);
-  private final Joystick m_operator = new Joystick(1);
+  private final PS4Controller m_operator = new PS4Controller(1);
 
   // CAN motors
   private final CANSparkMax m_storage = new CANSparkMax(1, MotorType.kBrushless);
@@ -154,6 +155,14 @@ public class Robot extends TimedRobot {
 
 
       case kCustomAuto1:
+        if (count == 0) {
+          if (m_timer.get() < 2.3) {
+            m_robotDrive.arcadeDrive(0.55, 0.0);
+          }
+          else {
+            count ++ ;
+          }
+        }
         break;
 
 
