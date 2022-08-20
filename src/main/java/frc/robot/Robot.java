@@ -28,7 +28,7 @@ public class Robot extends TimedRobot {
 
   // Joysticks
   private final Joystick m_driver = new Joystick(0);
-  private final PS4Controller m_operator = new Joystick(1);
+  private final Joystick m_operator = new Joystick(1);
 
   // CAN motors
   private final CANSparkMax m_storage = new CANSparkMax(1, MotorType.kBrushless);
